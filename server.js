@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 mongoose
-  .connect("mongodb://localhost/BookStore", {
+  .connect(process.env.DATABASE_URL || "mongodb://localhost/BookStore", {
     useNewUrlParser: true,
   })
   .then(() => {
