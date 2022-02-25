@@ -1,0 +1,15 @@
+<div class="card border-dark mt-4 container">
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" name="name" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  <ul>
+
+    <% books.forEach(e=> { %>
+      <li class="card border-dark p-2 my-2 d-flex justify-content-between">
+        <%= e.name %>
+          <%=e._id %>
+      </li>
+      <% }) %>
+  </ul>
+</div>

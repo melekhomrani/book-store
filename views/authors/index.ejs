@@ -1,13 +1,13 @@
 <div class="card border-dark mt-4 container">
   <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" name="name" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <input class="form-control mr-sm-2 mb-2" name="name" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
   </form>
   <ul>
 
     <% authors.forEach(e=> { %>
-      <li>
-        <a href="/authors/<%= e._id  %> ">
+      <li class="card border-dark p-2 my-2 d-flex justify-content-between">
+        <a href="/authors/<%= e._id  %> " class="text-dark">
           <%= e.name %>
         </a>
       </li>

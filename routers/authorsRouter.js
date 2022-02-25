@@ -11,9 +11,10 @@ const authorModel = require("../models/authorModel");
 router.get("/", author_get);
 
 router.get("/:id", async (req, res) => {
+  let id = req.params.id;
   try {
-    const auth = await authorModel.find({ _id: req.params.id });
-    await res.render("authors/authorDetails", { author: auth });
+    const auth = await authorModel.findById(id);
+    res.render("authors/authorDetails", { author: auth });
   } catch (error) {
     console.log("there is an error");
   }
@@ -22,5 +23,13 @@ router.get("/:id", async (req, res) => {
 router.get("/new", author_new);
 
 router.post("/", author_post);
+
+router.delete("/:id", async (req, res) => {
+  let id = req.params.id;
+  await authorModel
+    .findByIdAndDelete(id)
+    .then(res.json({ redirect: "/authors" }))
+    .catch((e) => console.log(e));
+});
 
 module.exports = router;
