@@ -1,1 +1,15 @@
-new author
+<div class="card border-dark mt-2 p-4">
+  <h3 class="">Add New Author</h3>
+
+  <form action="/authors" method="post" class="form">
+    <%- include("_form_fields") %>
+      <div class="form-group d-flex justify-content-end">
+        <div class="row-sm" style="margin-right: 10px;">
+          <a href="/authors" class="btn btn-danger">cancel</a>
+        </div>
+        <div class="row-sm">
+          <button type="submit" class="btn btn-primary ml-2">Add Author</button>
+        </div>
+      </div>
+  </form>
+</div>

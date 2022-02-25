@@ -1,7 +1,9 @@
 const express = require("express");
 const expressLayout = require("express-ejs-layouts");
-const indexRouter = require("./routers/index");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const indexRouter = require("./routers/index");
+
 const app = express();
 
 mongoose
@@ -22,4 +24,5 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(expressLayout);
+app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }));
 app.use("/", indexRouter);
